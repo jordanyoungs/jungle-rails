@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "USer saved, session user id set"
-      redirect_to '/'
+      redirect_to :root
     else
-      redirect_to '/signup'
+      redirect_to :signup
     end
   end
 
