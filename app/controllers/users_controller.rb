@@ -9,10 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "User saved, session user id set"
+      flash[:success] = "Account created!"
       redirect_to :root
     else
-      redirect_to :signup
+      flash.now[:danger] = "Something went wrong"
+      render :new
     end
   end
 

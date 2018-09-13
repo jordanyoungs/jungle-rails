@@ -1,13 +1,4 @@
-<%= flash %>
-<div>hello</div>
-<%= flash[0] %>
-<%= %>
-<% flash.each do |key, value| %>
-  <div class="<%= flash_class(key) %>">
-    <%= key %>
-    <%= value %>
-  </div>
-<% end %>
+<%= render 'flash' %>
 
 <section class="products-index">
 

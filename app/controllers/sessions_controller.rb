@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
+    @email = ''
   end
 
   def create
+    @email = login_params[:email]
     user = User.find_by_email(login_params[:email])
     # If the user exists AND the password entered is correct.
     if user && user.authenticate(login_params[:password])
@@ -17,7 +19,8 @@ class SessionsController < ApplicationController
       redirect_to :root
     else
     # If user's login doesn't work, send them back to the login form.
-      redirect_to :login
+      flash.now[:danger] = "Invalid email or password"
+      render :new
     end
   end
 
