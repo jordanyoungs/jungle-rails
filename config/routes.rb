@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/users', to: 'users#create'
 
+  # User Login
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
