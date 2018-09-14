@@ -1,0 +1,13 @@
+Thank you for shopping at Jungle!
+=================================
+
+Your order (Order ID #<%= @order[:id] %>) has successfully been placed.
+
+Order Summary:
+<% @order.line_items.each do |item| %>
+<%= item.product.name %> x <%= item.product.quantity %>
+<% end %>
+
+Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
+
+To view your complete order details, please follow this link: <%= @url %>.

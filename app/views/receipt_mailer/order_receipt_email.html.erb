@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for shopping at Jungle!</h1>
+    <p>
+      Your order (Order ID #<%= @order[:id] %>) has successfully been placed.
+    </p>
+    <h2>Order Summary:</h2>
+    <ul>
+      <% @order.line_items.each do |item| %>
+        <li><%= item.product.name %> x <%= item.product.quantity %></li>
+      <% end %>
+    </ul>
+    <p>Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></p>
+
+    <p>
+      To view your complete order details, please follow this link: <%= @url %>.
+    </p>
+  </body>
+</html>

@@ -10,13 +10,17 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      ReceiptMailer.order_receipt_email(order).deliver_now
+      flash[:success] = "Your order has been placed!"
+      redirect_to order
     else
-      redirect_to :cart, flash: { error: order.errors.full_messages.first }
+      flash[:danger] = order.errors.full_messages.first
+      redirect_to :cart
     end
 
   rescue Stripe::CardError => e
-    redirect_to :cart, flash: { error: e.message }
+    flash[:danger] = e.message
+    redirect_to :cart
   end
 
   private
