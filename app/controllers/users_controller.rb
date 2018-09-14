@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
   def new
-    # @user = User.new
-    @users = User.all
   end
 
   def create
@@ -12,7 +10,10 @@ class UsersController < ApplicationController
       flash[:success] = "Account created!"
       redirect_to :root
     else
-      flash.now[:danger] = "Something went wrong"
+      @user.errors.full_messages.each do |msg|
+        flash.now[:danger] ||= []
+        flash.now[:danger] << msg
+      end
       render :new
     end
   end

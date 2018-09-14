@@ -12,14 +12,13 @@ class SessionsController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
       session[:user_id] = user.id
-      flash[:info] = "You logged in!"
-      flash[:success] = "You logged in!"
-      flash[:danger] = "You logged in!"
-      flash[:warning] = "You logged in!"
+      flash[:info] = "Welcome " + user.first_name + "!"
       redirect_to :root
+    elsif !user
+      flash.now[:danger] = "Email not registered"
+      render :new
     else
-    # If user's login doesn't work, send them back to the login form.
-      flash.now[:danger] = "Invalid email or password"
+      flash.now[:danger] = "Invalid password"
       render :new
     end
   end
