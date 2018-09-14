@@ -19,6 +19,9 @@ Rails.application.configure do
   # Set default url for mailer path
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
+  # Set path to preview an email
+  config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

@@ -10,7 +10,11 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+
+      # This is where an email would get sent
+      # Go to http://localhost:3000/rails/mailers/ to see email previews
       ReceiptMailer.order_receipt_email(order).deliver_now
+
       flash[:success] = "Your order has been placed!"
       redirect_to order
     else
