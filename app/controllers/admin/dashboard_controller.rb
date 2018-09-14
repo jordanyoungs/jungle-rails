@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < Admin::ApplicationController
 
   # before_filter :authorize
 
