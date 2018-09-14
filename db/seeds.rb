@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
 
 puts "Seeding Data ..."
 
@@ -143,6 +144,50 @@ User.create!({
   password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
 })
 
-rev = Review.new(id: 3, product_id: 1, user_id: 1, description: nil, rating: 3)
+User.create!({
+  first_name: 'John',
+  last_name: 'Doe',
+  email: 'john@john.com',
+  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+})
+
+User.create!({
+  first_name: 'Slim',
+  last_name: 'Jim',
+  email: 'slim@slim.com',
+  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+})
+
+
+## REVIEWS
+
+puts "Creating Reviews ..."
+
+(1..12).each do |i|
+  Review.create!({
+    user_id: 1,
+    product_id: i,
+    description: Faker::GreekPhilosophers.quote,
+    rating: rand(1..5)
+  })
+end
+
+(1..12).each do |i|
+  Review.create!({
+    user_id: 2,
+    product_id: i,
+    description: Faker::ChuckNorris.fact,
+    rating: rand(1..5)
+  })
+end
+
+(1..12).each do |i|
+  Review.create!({
+    user_id: 3,
+    product_id: i,
+    description: Faker::Simpsons.quote,
+    rating: rand(1..5)
+  })
+end
 
 puts "DONE!"
