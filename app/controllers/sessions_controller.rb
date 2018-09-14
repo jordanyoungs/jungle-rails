@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
   private
 
   def login_params
-    params.require(:login).permit(:email, :password, :password_confirmation)
+    params.require(:login).permit(:email, :password)
   end
 
 end
