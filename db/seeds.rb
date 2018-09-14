@@ -132,5 +132,17 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+puts "Creating Users ..."
+
+User.create!({
+  first_name: 'Bob',
+  last_name: 'Ross',
+  email: 'bob@bob.com',
+  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+})
+
+rev = Review.new(id: 3, product_id: 1, user_id: 1, description: nil, rating: 3)
 
 puts "DONE!"
