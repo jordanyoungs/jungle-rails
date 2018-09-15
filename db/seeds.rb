@@ -158,6 +158,14 @@ User.create!({
   password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
 })
 
+User.create!({
+  first_name: 'Jordan',
+  last_name: 'Youngs',
+  email: 'test@test.com',
+  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+})
+
+
 
 ## REVIEWS
 
@@ -192,7 +200,7 @@ end
 
 (1..12).each do |i|
   product = Product.find(i)
-  product.update(average_rating: product.reviews.average(:rating).round)
+  product.update(average_rating: product.reviews.average(:rating).round(1))
 end
 
 puts "DONE!"

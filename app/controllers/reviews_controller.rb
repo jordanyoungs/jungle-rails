@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:success] = "Thanks for the Review!"
-      @product.update(average_rating: @product.reviews.average(:rating).round)
+      @product.update(average_rating: @product.reviews.average(:rating).round(1))
       redirect_to @product
     else
       render 'show'
