@@ -190,4 +190,9 @@ end
   })
 end
 
+(1..12).each do |i|
+  product = Product.find(i)
+  product.update(average_rating: product.reviews.average(:rating).round)
+end
+
 puts "DONE!"

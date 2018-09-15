@@ -27,6 +27,11 @@
     </div>
 
     <div class="row">
+      Average Rating
+      <%= @product.average_rating %>
+    </div>
+
+    <div class="row">
       <% @product.reviews.each do |review| %>
         User
         <%= review.user.first_name %> <%= review.user.last_name %>
