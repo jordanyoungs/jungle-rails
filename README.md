@@ -27,14 +27,23 @@ Some of the functionality the page has:
 8. Put Stripe (test) keys into appropriate .env vars
 9. Run `bin/rails s -b 0.0.0.0` to start the server
 
-## Stripe Testing
+## Testing
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+You can create a new user or use email: 'test@test.com', password: 'bob' to login.
 
-More information in their docs: <https://stripe.com/docs/testing#cards>
+Use Credit Card # 4111 1111 1111 1111 for testing cart checkout.
+
+More information in Stripe docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Screenshots
+
+!["Screenshot of two clients on load"](https://github.com/jordanyoungs/chatty/blob/master/docs/Home.png?raw=true)
+!["Screenshot of names changing"](https://github.com/jordanyoungs/chatty/blob/master/docs/NameChanges.png?raw=true)
+!["Screenshot of some messaging"](https://github.com/jordanyoungs/chatty/blob/master/docs/Messaging.png?raw=true)
+!["Screenshot of a client leaving"](https://github.com/jordanyoungs/chatty/blob/master/docs/Leaving.png?raw=true)
