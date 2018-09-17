@@ -6,7 +6,7 @@
     <%= review.description %>
   </td>
   <td>
-    <%= review.rating %>/5
+    <%= review.rating %> / 5
   </td>
     <% if current_user.present? && @product.reviews.find_by(user_id: current_user[:id]).present? %>
       <td>
