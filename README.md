@@ -43,7 +43,23 @@ More information in Stripe docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 
-!["Screenshot of two clients on load"](https://github.com/jordanyoungs/chatty/blob/master/docs/Home.png?raw=true)
-!["Screenshot of names changing"](https://github.com/jordanyoungs/chatty/blob/master/docs/NameChanges.png?raw=true)
-!["Screenshot of some messaging"](https://github.com/jordanyoungs/chatty/blob/master/docs/Messaging.png?raw=true)
-!["Screenshot of a client leaving"](https://github.com/jordanyoungs/chatty/blob/master/docs/Leaving.png?raw=true)
+Home Page - Product Catalog
+!["Screenshot of product catalog"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/product-catalog.png?raw=true)
+
+Admin Authentication
+!["Screenshot of admin authentication"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/admin-login.png?raw=true)
+
+Cart Checkout
+!["Screenshot of cart checkout"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/cart-checkout.png?raw=true)
+
+Post-Checkout
+!["Screenshot of post-checkout"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/successful-checkout.png?raw=true)
+
+Confirmation Email Preview
+!["Screenshot of email preview"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/email-preview.png?raw=true)
+
+Recently Submitted Review
+!["Screenshot of submitted review"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/submitted-review.png?raw=true)
+
+Visitor Reviews
+!["Screenshot of visitor reviews"](https://github.com/jordanyoungs/jungle-rails/blob/master/docs/visitor-reviews.png?raw=true)
