@@ -20,16 +20,21 @@
           <dd><%= @product.name %></dd>
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
+          <dt>Average Rating</dt>
+          <dd><%= @product.average_rating %>/5</dd>
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= humanized_money_with_symbol @product.price %></dd>
+
         </dl>
       </div>
     </div>
 
+    <h2>Reviews</h2>
+    <h3>Write a Review</h3>
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-1">
+      <div class="col-sm-10">
         <%= form_for [@product, @review], url: product_reviews_path(@product) do |form| %>
 
           <% if form.object.errors.any? %>
@@ -58,22 +63,40 @@
       </div>
     </div>
 
-    <div class="row">
-      Average Rating
-      <%= @product.average_rating %>
-    </div>
+    <br/>
 
     <div class="row">
-      <% @product.reviews.each do |review| %>
-        User
-        <%= review.user.first_name %> <%= review.user.last_name %>
-        Rating
-        <%= review.rating %>
-        Description
-        <%= review.description %>
-        <br/>
-      <% end %>
-    </div>
+      <h3>Past Reviews</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @product.reviews.each do |review| %>
+            <tr>
+              <td>
+                <%= review.user.first_name %> <%= review.user.last_name %>
+              </td>
+              <td>
+                <%= review.description %>
+              </td>
+              <td>
+                <%= review.rating %>/5
+              </td>
+              <td>
+                <% if current_user.present? %>
+                  <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
   </article>
 

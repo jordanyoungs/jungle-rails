@@ -14,6 +14,19 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.find_by(id: params.require(:product_id))
+    review = product.reviews.find_by(id: params.require(:id))
+    if review.destroy
+      flash[:warning] = "Review deleted"
+      redirect_to :back
+    else
+      flash.now[:danger] = "Something went wrong"
+      render 'prodcuts/show'
+    end
+
+  end
+
   private
 
   def review_params
