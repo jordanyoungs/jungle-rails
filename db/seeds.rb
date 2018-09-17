@@ -84,7 +84,6 @@ cat1.products.create!({
   price: 224.50
 })
 
-
 cat2.products.create!({
   name:  'Modern Skateboards',
   description: Faker::Hipster.paragraph(4),
@@ -165,8 +164,6 @@ User.create!({
   password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
 })
 
-
-
 ## REVIEWS
 
 puts "Creating Reviews ..."
@@ -198,9 +195,59 @@ end
   })
 end
 
+## AVERAGE RATINGS
+
 (1..12).each do |i|
   product = Product.find(i)
-  product.update(average_rating: product.reviews.average(:rating).round(1))
+  product.update!(average_rating: product.reviews.average(:rating).round(1))
 end
+
+## ORDERS
+
+puts "Creating Orders ..."
+
+order1 = Order.new({
+  total_cents: 553575,
+  stripe_charge_id: "ch_1DBPcUGI3L7adIQDzi7mlxMs",
+  email: "bob@bob.com"
+})
+
+order1.line_items.new({
+  product_id: 10,
+  quantity: 1,
+  item_price_cents: 305200,
+  total_price_cents: 305200
+})
+
+order1.line_items.new({
+  product_id: 12,
+  quantity: 1,
+  item_price_cents: 248375,
+  total_price_cents: 248375
+})
+
+order1.save!
+
+order2 = Order.create({
+  total_cents: 267450,
+  stripe_charge_id: "ch_1DBPdEGI3L7adIQDMDz5RODv",
+  email: "anonymous@example.com"
+})
+
+order2.line_items.new({
+  product_id: 5,
+  quantity: 2,
+  item_price_cents: 122500,
+  total_price_cents: 245000
+})
+
+order2.line_items.new({
+  product_id: 6,
+  quantity: 1,
+  item_price_cents: 22450,
+  total_price_cents: 22450
+})
+
+order2.save!
 
 puts "DONE!"
