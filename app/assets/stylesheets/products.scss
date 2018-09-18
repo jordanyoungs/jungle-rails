@@ -65,6 +65,13 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      div.average-rating {
+        float:right;
+        position: absolute;
+        bottom: 60px;
+        right: 15px;
+      }
+
       &:hover {
 
         border-color: #999;
