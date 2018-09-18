@@ -140,28 +140,32 @@ User.create!({
   first_name: 'Bob',
   last_name: 'Ross',
   email: 'bob@bob.com',
-  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+  password: 'bob',
+  password_confirmation: 'bob'
 })
 
 User.create!({
   first_name: 'John',
   last_name: 'Doe',
   email: 'john@john.com',
-  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+  password: 'john',
+  password_confirmation: 'john'
 })
 
 User.create!({
   first_name: 'Slim',
   last_name: 'Jim',
   email: 'slim@slim.com',
-  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+  password: 'slim',
+  password_confirmation: 'slim'
 })
 
 User.create!({
   first_name: 'Jordan',
   last_name: 'Youngs',
   email: 'test@test.com',
-  password_digest: '$2a$10$Qx5zZi0z5mXpnvPtrqvl7.s0EZOOdB82VGcrdIj2iwJNp0Fz/87NG' #pw is 'bob'
+  password: 'test',
+  password_confirmation: 'test'
 })
 
 ## REVIEWS
